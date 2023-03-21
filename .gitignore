@@ -1,1 +1,5 @@
-.sass-cache/
+# Hugo
+.hugo_build.lock
+jsconfig.json
+/_vendor/
+/resources/
