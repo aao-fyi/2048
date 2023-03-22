@@ -18,6 +18,19 @@ enableRobotsTXT = true
 [minify]
   minifyOutput = true
 
+# Module
+[module]
+  # Version
+  [module.hugoVersion]
+    extended = true
+    min = '0.111.0'
+  # Sassy Math
+  [[module.imports]]
+    path = 'github.com/at-import/Sassy-math'
+  [[module.imports.mounts]]
+    source = 'compass/stylesheets/'
+    target = 'assets/scss/sassy-math/'
+
 # Parameters
 [params]
   # Bootstrap JS
