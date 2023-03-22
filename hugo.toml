@@ -30,6 +30,12 @@ enableRobotsTXT = true
   [[module.imports.mounts]]
     source = 'compass/stylesheets/'
     target = 'assets/scss/sassy-math/'
+  # OpenSans
+  [[module.imports]]
+    path = 'gitlab.com/aao-fyi/resources/fonts'
+  [[module.imports.mounts]]
+    source = 'OpenSans/'
+    target = 'assets/fonts/opensans'
 
 # Parameters
 [params]

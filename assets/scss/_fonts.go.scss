@@ -1,0 +1,27 @@
+/* OpenSans */
+/* License: https://github.com/itfoundry/OpenSans/blob/master/OFL.txt */
+/* Style = Normal */
+{{ with resources.Get "fonts/opensans/OpenSans-Light.woff2" }}
+  @font-face {
+    font-family: 'OpenSans';
+    src: url('{{ .RelPermalink }}') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
+{{ end }}
+{{ with resources.Get "fonts/opensans/OpenSans-Regular.woff2" }}
+  @font-face {
+    font-family: 'OpenSans';
+    src: url('{{ .RelPermalink }}') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+{{ end }}
+{{ with resources.Get "fonts/opensans/OpenSans-Bold.woff2" }}
+  @font-face {
+    font-family: 'OpenSans';
+    src: url('{{ .RelPermalink }}') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+{{ end }}
