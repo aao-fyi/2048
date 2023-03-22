@@ -1,0 +1,65 @@
+# Info
+baseURL = 'https://2048.aao.fyi/'
+languageCode = 'en'
+title = '2048'
+description = ''
+copyright = '2048 Contributors'
+
+# Clue-fyi Theme
+theme = 'gitlab.com/aao-fyi/clue-fyi'
+
+# Features
+disableHugoGeneratorInject = false
+disableKinds = []
+enableGitInfo = true
+enableRobotsTXT = true
+
+# Minify
+[minify]
+  minifyOutput = true
+
+# Parameters
+[params]
+  # Bootstrap JS
+  bootstrapJS = false
+  # Copyright
+  copyright = true
+  license = 'MIT'
+  # Navbar
+  navbarBrandLogo = false
+  navbarBrandText = true
+  navbarFixedTop = true
+  # Manifest
+  manifestJSON = true
+  manifestColorBG = '#333'
+
+# Privacy
+[privacy]
+  [privacy.disqus]
+    disable = true
+  [privacy.googleAnalytics]
+    anonymizeIP = true
+    disable = true
+    respectDoNotTrack = true
+    useSessionStorage = true
+  [privacy.instagram]
+    disable = true
+    simple = true
+  [privacy.twitter]
+    disable = true
+    enableDNT = true
+    simple = true
+  [privacy.vimeo]
+    disable = true
+    enableDNT = true
+    simple = true
+  [privacy.youtube]
+    disable = true
+    privacyEnhanced = true
+
+# Services
+[services]
+  [services.instagram]
+    disableInlineCSS = true
+  [services.twitter]
+    disableInlineCSS = true
