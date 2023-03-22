@@ -61,25 +61,15 @@
       </div>
     </div>
 
-    <p class="game-explanation">
-      <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong>
-    </p>
-    <hr>
-    <p>
-    <strong class="important">Note:</strong> This site is the official version of 2048. You can play it on your phone via <a href="http://git.io/2048">http://git.io/2048.</a> All other apps or sites are derivatives or fakes, and should be used with caution.
-    </p>
-    <hr>
-    <p>
-    Created by <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a> Based on <a href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a> and conceptually similar to <a href="http://asherv.com/threes/" target="_blank">Threes by Asher Vollmer.</a>
-    </p>
-  </div>
-
-  <script src="js/keyboard_input_manager.js"></script>
-  <script src="js/html_actuator.js"></script>
-  <script src="js/grid.js"></script>
-  <script src="js/tile.js"></script>
-  <script src="js/local_storage_manager.js"></script>
-  <script src="js/game_manager.js"></script>
-  <script src="js/application.js"></script>
-</body>
-</html>
+{{ define "foot" }}
+  {{ $keyboard_input_manager := resources.Get "js/keyboard_input_manager.js" }}
+  {{ $html_actuator := resources.Get "js/html_actuator.js" }}
+  {{ $grid := resources.Get "js/grid.js" }}
+  {{ $tile := resources.Get "js/tile.js" }}
+  {{ $local_storage_manager := resources.Get "js/local_storage_manager.js" }}
+  {{ $game_manager := resources.Get "js/game_manager.js" }}
+  {{ $application := resources.Get "js/application.js" }}
+  {{ $2048JS := slice $keyboard_input_manager $html_actuator $grid $tile $local_storage_manager $game_manager $application | resources.Concat "js/2048.js" | minify }}
+  {{ $2048SRI := $2048JS | resources.Fingerprint "sha384" }}
+  <script src="{{ $2048SRI.RelPermalink }}" integrity="{{ $2048SRI.Data.Integrity }}"></script>
+{{ end }}
