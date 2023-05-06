@@ -4,7 +4,7 @@
 {{ with resources.Get "fonts/opensans/OpenSans-Light.woff2" }}
   @font-face {
     font-family: 'OpenSans';
-    src: url('{{ .RelPermalink }}') format('truetype');
+    src: url('{{ .RelPermalink }}') format('woff2');
     font-weight: 300;
     font-style: normal;
   }
@@ -12,7 +12,7 @@
 {{ with resources.Get "fonts/opensans/OpenSans-Regular.woff2" }}
   @font-face {
     font-family: 'OpenSans';
-    src: url('{{ .RelPermalink }}') format('truetype');
+    src: url('{{ .RelPermalink }}') format('woff2');
     font-weight: 400;
     font-style: normal;
   }
@@ -20,7 +20,7 @@
 {{ with resources.Get "fonts/opensans/OpenSans-Bold.woff2" }}
   @font-face {
     font-family: 'OpenSans';
-    src: url('{{ .RelPermalink }}') format('truetype');
+    src: url('{{ .RelPermalink }}') format('woff2');
     font-weight: 700;
     font-style: normal;
   }
