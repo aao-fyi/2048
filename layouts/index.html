@@ -1,32 +1,72 @@
-{{ define "head" }}
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
-{{ end }}
+{{ define "header" }}
+  <div class="container heading py-3">
+    <div class="heading-nav row gx-0">
 
-{{ define "main" }}
-  <div class="container">
-    <div class="heading">
-      <h1 class="title">2048</h1>
-      <div class="scores-container">
-        <div class="score-container">0</div>
-        <div class="best-container">0</div>
+      {{/* New Game */}}
+      <div class="col col-3 col-sm-2 col-md-1 order-1 order-md-1">
+        <button class="btn btn-primary restart-button" title="Restart" aria-label="Restart" type="button">
+          {{ partial "icon" "rotate-cw" }}
+        </button>
+      </div>
+
+      {{/* Score */}}
+      <div class="col col-9 col-sm-10 col-md-5 order-2 order-md-2">
+        <div class="score">
+          <small>Score</small>
+          <div id="score-current">0</div>
+        </div>
+      </div>
+      {{/* Best Score */}}
+      <div class="col col-9 col-sm-10 col-md-5 order-4 order-md-3">
+        <div class="score">
+          <small>Best</small>
+          <div id="score-best">0</div>
+        </div>
+      </div>
+
+      {{/* Info */}}
+      <div class="col col-3 col-sm-2 col-md-1 order-3 order-md-4">
+        <button class="btn btn-primary" title="Information" aria-label="Information" type="button" data-bs-toggle="offcanvas" data-bs-target="#2048-info-offcanvas" aria-controls="2048-info-offcanvas">
+          {{ partial "icon" "info" }}
+        </button>
       </div>
     </div>
 
-    <div class="above-game">
-      <p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
-      <a class="restart-button">New Game</a>
+  </div>
+{{ end }}
+
+{{ define "main" }}
+  <div id="2048-info-offcanvas" class="offcanvas offcanvas-end" tabindex="-1">
+    <div class="offcanvas-header">
+      <h1 class="offcanvas-title">{{ .Site.Title }}</h1>
+      <button type="button" class="btn" data-bs-dismiss="offcanvas" title="Close" aria-label="Close">{{ partial "icon" "x" }}</button>
     </div>
 
-    <div class="game-container">
+    <div class="offcanvas-body">
+      <p>{{ .Site.Params.Description }}</p>
+      <p><strong>How to play:</strong> Use your <strong>arrow keys or swipe</strong> to move the tiles. When two tiles with the same number collide, <strong>merge into one!</strong></p>
+
+      {{ with .Site.Menus.info }}
+        <ul class="list-inline list-unstyled">
+        {{ range . }}
+          <li class="list-inline-item">
+            <a href="{{ .URL }}" target="_blank">{{ .Name }}</a>
+          </li>
+        {{ end }}
+        </ul>
+      {{ end }}
+
+      <p>&copy; {{ .Site.Copyright }}</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="game-container mx-auto">
       <div class="game-message">
         <p></p>
         <div class="lower">
-	        <a class="keep-playing-button">Keep going</a>
-          <a class="retry-button">Try again</a>
+          <button type="button" class="btn btn-secondary keep-playing-button">Keep going</button>
+          <button type="button" class="btn btn-secondary retry-button">Try again</button>
         </div>
       </div>
 
@@ -72,6 +112,7 @@
   {{ $local_storage_manager := resources.Get "js/local_storage_manager.js" }}
   {{ $game_manager := resources.Get "js/game_manager.js" }}
   {{ $application := resources.Get "js/application.js" }}
+
   {{ $2048JS := slice $keyboard_input_manager $html_actuator $grid $tile $local_storage_manager $game_manager $application | resources.Concat "js/2048.js" | minify }}
   {{ $2048SRI := $2048JS | resources.Fingerprint "sha384" }}
   <script src="{{ $2048SRI.RelPermalink }}" integrity="{{ $2048SRI.Data.Integrity }}"></script>
