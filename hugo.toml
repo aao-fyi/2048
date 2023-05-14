@@ -1,5 +1,5 @@
 # Info
-baseURL = 'https://2048.arcade.aao.fyi/'
+baseURL = 'https://2048.aao.fyi/'
 languageCode = 'en'
 title = '2048'
 copyright = '2048 Contributors'
@@ -46,10 +46,11 @@ enableRobotsTXT = true
   manifestJSON = true
   manifestColorBG = '#333'
 
+# Menus
 [menu]
   [[menu.info]]
     name = 'Source'
-    url = 'https://gitlab.com/aao-fyi/arcade/2048'
+    url = 'https://gitlab.com/aao-fyi/2048'
     weight = 10
   [[menu.info]]
     name = 'Privacy'

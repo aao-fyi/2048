@@ -1,4 +1,4 @@
-module gitlab.com/aao-fyi/arcade/2048
+module gitlab.com/aao-fyi/2048
 
 go 1.17
 
