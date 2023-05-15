@@ -5,7 +5,7 @@ title = '2048'
 copyright = '2048 Contributors'
 
 # Theme
-theme = 'gitlab.com/aao-fyi/clue-fyi'
+theme = 'gitlab.com/aao-fyi/shock'
 
 # Features
 disableHugoGeneratorInject = false
