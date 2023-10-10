@@ -1,0 +1,47 @@
+# Info
+baseURL = 'https://arcade.aao.fyi/2048/'
+languageCode = 'en'
+title = '2048'
+copyright = '2048 Contributors'
+
+# Theme
+theme = 'gitlab.com/aao-fyi/shock'
+
+# Features
+disableHugoGeneratorInject = false
+disableKinds = ['taxonomy','term']
+enableGitInfo = true
+enableRobotsTXT = true
+
+# Minify
+[minify]
+  minifyOutput = true
+
+# Build
+[build]
+  # PostCSS
+  writeStats = true
+
+# Module
+[module]
+  # Version
+  [module.hugoVersion]
+    extended = true
+    min = '0.111.0'
+  # Sassy Math
+  [[module.imports]]
+    path = 'github.com/at-import/Sassy-math'
+  [[module.imports.mounts]]
+    source = 'compass/stylesheets/'
+    target = 'assets/scss/sassy-math/'
+
+# Menus
+[menu]
+  [[menu.info]]
+    name = 'Source'
+    url = 'https://gitlab.com/aao-fyi/2048'
+    weight = 10
+  [[menu.info]]
+    name = 'Privacy'
+    url = 'https://aao.fyi/privacy/'
+    weight = 20

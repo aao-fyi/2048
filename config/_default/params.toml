@@ -1,0 +1,8 @@
+description = 'Join the numbered tiles to reach 2048!'
+
+# PostCSS
+[postCSS]
+  state = true
+
+[footer]
+  state = false
