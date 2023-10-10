@@ -2,5 +2,12 @@
 .hugo_build.lock
 hugo_stats.json
 jsconfig.json
-/_vendor/
-/resources/
+_vendor/
+public/
+resources/
+
+# Node
+node_modules/
+
+# Text
+*.kate-swp
