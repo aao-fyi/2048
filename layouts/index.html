@@ -26,7 +26,7 @@
 
       {{/* Info */}}
       <div class="col col-3 col-sm-2 col-md-1 order-3 order-md-4">
-        <button class="btn btn-primary" title="Information" aria-label="Information" type="button" data-bs-toggle="offcanvas" data-bs-target="#2048-info-offcanvas" aria-controls="2048-info-offcanvas">
+        <button class="btn btn-primary" title="Information" aria-label="Information" type="button" data-bs-toggle="offcanvas" data-bs-target="#info-2048-offcanvas" aria-controls="info-2048-offcanvas">
           {{ partial "icon" "info" }}
         </button>
       </div>
@@ -36,7 +36,7 @@
 {{ end }}
 
 {{ define "main" }}
-  <div id="2048-info-offcanvas" class="offcanvas offcanvas-end" tabindex="-1">
+  <div id="info-2048-offcanvas" class="offcanvas offcanvas-end" tabindex="-1">
     <div class="offcanvas-header">
       <h1 class="offcanvas-title">{{ .Site.Title }}</h1>
       <button type="button" class="btn" data-bs-dismiss="offcanvas" title="Close" aria-label="Close">{{ partial "icon" "x" }}</button>
@@ -57,6 +57,7 @@
       {{ end }}
 
       <p>&copy; {{ .Site.Copyright }}</p>
+      {{ partial "footer" . }}
     </div>
   </div>
 
